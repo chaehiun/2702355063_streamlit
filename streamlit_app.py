@@ -28,8 +28,8 @@ loan_percent_income = loan_amnt / (person_income + 1e-6)
 cb_person_cred_hist_length = st.number_input("Lama Riwayat Kredit (tahun) (cb_person_cred_hist_length)", value=3)
 credit_score = st.number_input("Skor Kredit (credit_score)", min_value=300, max_value=850, value=600)
 previous_loan_defaults_on_file = st.selectbox("Riwayat Gagal Bayar (previous_loan_defaults_on_file)", ["No", "Yes"])
-loan_intent = st.selectbox("Tujuan Pinjaman", ["PERSONAL", "EDUCATION", "MEDICAL", "VENTURE", "HOMEIMPROVEMENT", "DEBTCONSOLIDATION"])
-home_ownership = st.selectbox("Status Tempat Tinggal", ["RENT", "OWN", "MORTGAGE", "OTHER"])
+loan_intent = st.selectbox("Tujuan Pinjaman (loan_intent)", ["PERSONAL", "EDUCATION", "MEDICAL", "VENTURE", "HOMEIMPROVEMENT", "DEBTCONSOLIDATION"])
+person_home_ownership = st.selectbox("Status Kepemilikan Tempat Tinggal (person_home_ownership)", ["RENT", "OWN", "MORTGAGE", "OTHER"])
 
 # Map categorical to numerical
 gender_map = {"male": 1, "female": 0}
