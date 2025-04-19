@@ -33,7 +33,7 @@ home_ownership = st.selectbox("Status Tempat Tinggal", ["RENT", "OWN", "MORTGAGE
 
 # Map categorical to numerical
 gender_map = {"male": 1, "female": 0}
-edu_map = {""High School": 0, "Bachelor": 1, "Master": 2, "Associate": 3, "Doctorate": 4}
+edu_map = {"High School": 0, "Bachelor": 1, "Master": 2, "Associate": 3, "Doctorate": 4}
 default_map = {"No": 0, "Yes": 1}
 
 loan_intents = ["PERSONAL", "EDUCATION", "MEDICAL", "VENTURE", "HOMEIMPROVEMENT", "DEBTCONSOLIDATION"]
