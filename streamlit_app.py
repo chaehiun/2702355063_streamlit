@@ -36,7 +36,7 @@ person_emp_exp = st.slider("Lama Pengalaman Kerja (tahun) (person_emp_exp)", 0, 
 
 person_home_ownership = st.selectbox(
     "Status Kepemilikan Tempat Tinggal (person_home_ownership)",
-    ["RENT", "OWN", "MORTGAGE", "OTHER"]
+    ["RENT", "OWN", "MORTGAGE", ""]
 )
 
 loan_amnt = st.number_input("Jumlah Pinjaman (loan_amnt)", min_value=0.0, value=10000.0)
