@@ -50,7 +50,7 @@ input_data = {
     'loan_percent_income': loan_percent_income,
     'cb_person_cred_hist_length': cb_person_cred_hist_length,
     'credit_score': credit_score,
-    'previous_loan_defaults_on_file': default_map[previous_loan_defaults_on_file],
+    'previous_loan_defaults_on_file': default_map[previous_loan_defaults_on_file]
 }
 
 # One-hot encode loan_intent
@@ -61,9 +61,16 @@ for intent in loan_intents:
 for ho in home_ownerships:
     input_data[f"person_home_ownership_{ho}"] = 1 if person_home_ownership == ho else 0
 
-# Predict
 if st.button("Prediksi"):
     input_df = pd.DataFrame([input_data])
+
+    # 🔍 DEBUG: Cek fitur input yang kamu berikan ke model
+    st.write("📋 Kolom input_df:", input_df.columns.tolist())
+    
+    # 🔍 DEBUG: Cek fitur yang dikenal oleh model (XGBoost booster)
+    st.write("🧠 Kolom yang dikenal model:", model.get_booster().feature_names)
+
+    # Prediksi
     result = model.predict(input_df)[0]
     st.success(f"Hasil Prediksi: {'DISETUJUI' if result == 1 else 'DITOLAK'}")
 
