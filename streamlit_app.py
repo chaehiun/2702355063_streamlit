@@ -59,7 +59,7 @@ for intent in loan_intents:
 
 # One-hot encode home_ownership
 for ho in home_ownerships:
-    input_data[f"person_home_ownership_{ho}"] = 1 if home_ownership == ho else 0
+    input_data[f"person_home_ownership_{ho}"] = 1 if person_home_ownership == ho else 0
 
 # Predict
 if st.button("Prediksi"):
