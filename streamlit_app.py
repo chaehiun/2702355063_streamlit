@@ -21,40 +21,42 @@ st.title("📊 Prediksi Persetujuan Pinjaman")
 # ========================
 st.subheader("Masukkan Data Calon Peminjam:")
 
-person_age = st.number_input("a. Usia", min_value=18, max_value=100, value=30)
+person_age = st.number_input("Usia (person_age)", min_value=18, max_value=100, value=30)
 
-person_gender = st.selectbox("b. Jenis Kelamin", ["female", "male"])
+person_gender = st.selectbox("Jenis Kelamin (person_gender)", ["female", "male"])
 
 person_education = st.selectbox(
-    "c. Tingkat Pendidikan",
+    "Tingkat Pendidikan (person_education)",
     ["High School", "Bachelor", "Master", "Associate", "Doctorate"]
 )
 
-person_income = st.number_input("d. Pendapatan Tahunan", min_value=0.0, value=50000.0)
+person_income = st.number_input("Pendapatan Tahunan (person_income)", min_value=0.0, value=50000.0)
 
-person_emp_exp = st.slider("e. Lama Pengalaman Kerja (tahun)", 0, 40, 5)
+person_emp_exp = st.slider("Lama Pengalaman Kerja (tahun) (person_emp_exp)", 0, 40, 5)
 
 person_home_ownership = st.selectbox(
-    "f. Status Kepemilikan Tempat Tinggal",
+    "Status Kepemilikan Tempat Tinggal (person_home_ownership)",
     ["RENT", "OWN", "MORTGAGE", "OTHER"]
 )
 
-loan_amnt = st.number_input("g. Jumlah Pinjaman", min_value=0.0, value=10000.0)
+loan_amnt = st.number_input("Jumlah Pinjaman (loan_amnt)", min_value=0.0, value=10000.0)
 
 loan_intent = st.selectbox(
-    "h. Tujuan Pinjaman",
+    "Tujuan Pinjaman (loan_intent)",
     ["PERSONAL", "EDUCATION", "MEDICAL", "VENTURE", "HOMEIMPROVEMENT", "DEBTCONSOLIDATION"]
 )
 
-loan_int_rate = st.number_input("i. Suku Bunga Pinjaman (%)", value=10.5)
+loan_int_rate = st.number_input("Suku Bunga Pinjaman (%) (loan_int_rate)", value=10.5)
 
 loan_percent_income = loan_amnt / (person_income + 1e-6)
 
-cb_person_cred_hist_length = st.number_input("j. Lama Riwayat Kredit (tahun)", value=3.0)
+cb_person_cred_hist_length = st.number_input("Lama Riwayat Kredit (tahun) (cb_person_cred_hist_length)", value=3.0)
 
-credit_score = st.number_input("k. Skor Kredit (300-850)", min_value=300, max_value=850, value=600)
+credit_score = st.number_input("Skor Kredit (credit_score)", min_value=300, max_value=850, value=600)
 
-previous_loan_defaults_on_file = st.selectbox("l. Riwayat Gagal Bayar Sebelumnya", ["No", "Yes"])
+previous_loan_defaults_on_file = st.selectbox(
+    "Riwayat Gagal Bayar Sebelumnya (previous_loan_defaults_on_file)", ["No", "Yes"]
+)
 
 # ========================
 # 🔁 Encoding & One-Hot
