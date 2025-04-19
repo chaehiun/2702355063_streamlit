@@ -12,7 +12,7 @@ def load_model():
 model = load_model()
 
 # ========================
-# 🌿 Judul Aplikasi
+# 🏷️ Judul Aplikasi
 # ========================
 st.title("📊 Prediksi Persetujuan Pinjaman")
 
@@ -54,12 +54,10 @@ cb_person_cred_hist_length = st.number_input("Lama Riwayat Kredit (tahun) (cb_pe
 
 credit_score = st.number_input("Skor Kredit (credit_score)", min_value=300, max_value=850, value=600)
 
-previous_loan_defaults_on_file = st.selectbox(
-    "Riwayat Gagal Bayar Sebelumnya (previous_loan_defaults_on_file)", ["No", "Yes"]
-)
+previous_loan_defaults_on_file = st.selectbox("Riwayat Gagal Bayar Sebelumnya (previous_loan_defaults_on_file)", ["No", "Yes"])
 
 # ========================
-# 🔀 Encoding & One-Hot
+# 🔁 Encoding & One-Hot
 # ========================
 input_data = {
     "person_age": person_age,
@@ -76,17 +74,17 @@ input_data = {
 }
 
 # One-hot encode loan_intent
-loan_intent_categories = ["PERSONAL", "EDUCATION", "MEDICAL", "VENTURE", "HOMEIMPROVEMENT"]
+loan_intent_categories = ["PERSONAL", "EDUCATION", "MEDICAL", "VENTURE", "HOMEIMPROVEMENT", "DEBTCONSOLIDATION"]
 for intent in loan_intent_categories:
     input_data[f"loan_intent_{intent}"] = 1 if loan_intent == intent else 0
 
 # One-hot encode home_ownership
-home_ownership_categories = ["RENT", "OWN", "OTHER"]
+home_ownership_categories = ["RENT", "OWN", "MORTGAGE", "OTHER"]
 for ho in home_ownership_categories:
     input_data[f"person_home_ownership_{ho}"] = 1 if person_home_ownership == ho else 0
 
 # ========================
-# 🧐 Prediksi
+# 🧠 Prediksi
 # ========================
 if st.button("Prediksi"):
     input_df = pd.DataFrame([input_data])
